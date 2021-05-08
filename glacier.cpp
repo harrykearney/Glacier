@@ -15,7 +15,7 @@ inline bool startsWith(string const &value, string const &ending) {
         return false;
     }
 }
-    
+
 void printLine(string fullString) {
     string content;
 
@@ -23,6 +23,15 @@ void printLine(string fullString) {
     content = content.substr(1, content.size()-2);
 
     cout << content << endl;
+}
+
+void print(string fullString) {
+    string content;
+
+    content = fullString.substr(fullString.find("\""), fullString.size());
+    content = content.substr(1, content.size()-2);
+
+    cout << content;
 }
 
 int main(int argc, char* argv[]) {;
