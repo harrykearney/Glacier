@@ -13,6 +13,12 @@ cd Glacier
 PRINTLINE "Hello, World!"
 ```
 
+## Hello, World! Pt.2 
+```
+PRINT "Hello, World!"
+NEWLINE
+```
+
 ## Math Evaluation.
 ```
 EVAL 2 + 2 - (4 - 1)
