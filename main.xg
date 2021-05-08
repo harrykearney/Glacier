@@ -1,8 +1,2 @@
-// Example 1
-
-PRINTLINE "Hello, World!"
-
-// Example 2
-
-PRINT "Hello, World!"
-NEWLINE
+PRINTLINE "Math Evaluation"
+EVALUATE "4 + 4"
