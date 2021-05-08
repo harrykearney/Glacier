@@ -1,1 +1,8 @@
+// Example 1
+
 PRINTLINE "Hello, World!"
+
+// Example 2
+
+PRINT "Hello, World!"
+NEWLINE

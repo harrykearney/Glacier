@@ -34,6 +34,10 @@ void print(string fullString) {
     cout << content;
 }
 
+void newLine() {
+    cout << endl;
+}
+
 int main(int argc, char* argv[]) {;
     if (endsWith(argv[1], ".xg") == 0) {
         cout << "Glacier Error: File provided is not of .xg file format." << endl;
@@ -47,5 +51,11 @@ int main(int argc, char* argv[]) {;
         if (startsWith(line, "//")) {}
         else if (startsWith(line, "PRINTLINE")) {
             printLine(line);
-    }
+        }
+        else if (startsWith(line, "PRINT")) {
+            print(line);
+        }
+        else if (startsWith(line, "NEWLINE")) {
+            newLine();
+        }
 }}
