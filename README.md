@@ -27,8 +27,5 @@ EVAL 2 + 2 - (4 - 1)
 ## String Variables
 ```
 STRING name = "Harry"
-PRINT "Hello, My name is "
-$name
-PRINT "!"
-NEWLINE
+PRINTLINE "Hello, my name is: {name}!"
 ```
