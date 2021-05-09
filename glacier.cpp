@@ -1,8 +1,32 @@
 #include <iostream>
+
+#include <map>
 #include <string>
 #include <fstream>
 #include <bits/stdc++.h>
 using namespace std;
+
+map<string, string> stringVariables;
+
+void printString(const string fullString) {
+    string varname = fullString.substr(1, string::npos);
+    cout << stringVariables.find(varname)->second;
+}
+
+void newStringVariable(const string fullString) {
+    string varname;
+    string varvalue;
+
+    varname = fullString.substr(6, string::npos);
+    varname = varname.substr(0, varname.find("="));
+    varname = varname.substr(1, string::npos - 1);
+    varname = varname.substr(0, varname.size() - 1);
+
+    varvalue = fullString.substr(fullString.find("\""), fullString.size());
+    varvalue = varvalue.substr(1, varvalue.size()-2);
+
+    stringVariables[varname] = varvalue;
+}
 
 inline void evaluate(const string fullString) {
     string expression;
@@ -80,7 +104,14 @@ int main(int argc, char* argv[]) {;
         else if (startsWith(line, "EVALUATE")) {
             evaluate(line);
         }
+        else if (startsWith(line, "STRING")) {
+            newStringVariable(line);
+        }
+        else if (startsWith(line, "$")) {
+            printString(line);
+        }
         else {
             cout << "UNKNOWN Command" + line.substr(0, line.find(" ")) << endl;
+            exit(1);
         }
 }}
