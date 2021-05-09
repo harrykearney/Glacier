@@ -1,12 +1,21 @@
 #include <iostream>
 
 #include <map>
+#include <regex>
 #include <string>
 #include <fstream>
 #include <bits/stdc++.h>
 using namespace std;
 
 map<string, string> stringVariables;
+
+bool replace(std::string& str, const std::string& from, const std::string& to) {
+    size_t start_pos = str.find(from);
+    if(start_pos == std::string::npos)
+        return false;
+    str.replace(start_pos, from.length(), to);
+    return true;
+}
 
 void printString(const string fullString) {
     string varname = fullString.substr(1, string::npos);
@@ -60,12 +69,26 @@ inline bool startsWith(string const &value, string const &ending) {
 }
 
 void printLine(string fullString) {
-    string content;
+    if (fullString.find("{") != string::npos && fullString.find("}") != string::npos) {
+        string varname;
+        varname = fullString.substr(fullString.find(" ") + 1, string::npos);
 
-    content = fullString.substr(fullString.find("\""), fullString.size());
-    content = content.substr(1, content.size()-2);
+        varname = varname.substr(varname.find("{"), varname.find("}") + 2);
+        varname = varname.substr(1, varname.size() - 2);
+        varname = varname.substr(0, varname.size() - 1);
 
-    cout << content << endl;
+        replace(fullString, "{" + varname + "}", stringVariables.find(varname)->second);
+        fullString = fullString.substr(11, fullString.size() - 1);
+        fullString = fullString.substr(0, fullString.size() - 1);
+        cout << fullString << endl;
+    } else {
+        string content;
+
+        content = fullString.substr(fullString.find("\""), fullString.size());
+        content = content.substr(1, content.size() - 2);
+
+        cout << content << endl;
+    }
 }
 
 void print(string fullString) {
