@@ -4,10 +4,11 @@
 #include <regex>
 #include <string>
 #include <fstream>
-#include <bits/stdc++.h>
+#include <stdlib.h>
 using namespace std;
 
 map<string, string> stringVariables;
+map<string, int> integerVariables;
 
 bool replace(std::string& str, const std::string& from, const std::string& to) {
     size_t start_pos = str.find(from);

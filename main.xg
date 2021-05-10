@@ -1,2 +1,4 @@
-PRINTLINE "Math Evaluation"
-EVALUATE "4 + 4"
+STRING firstname = "Harry"
+STRING lastname = "Kearney"
+
+PRINTLINE "Hello, my name is: {lastname}"
