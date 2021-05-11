@@ -1,4 +1,3 @@
-STRING firstname = "Harry"
-STRING lastname = "Kearney"
+STRING name = "Harry"
 
-PRINTLINE "Hello, my name is: {lastname}"
+PRINT "my name is {name}"
